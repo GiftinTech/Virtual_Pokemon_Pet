@@ -153,14 +153,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputElem = document.querySelector('.js_user_input') as HTMLInputElement;
   const errMsg = document.querySelector('.js_not_found') as HTMLSpanElement;
 
-  searchPokemonBtn.addEventListener('click', () => {
-    const pokemonName = inputElem.value.trim();
-    if (!pokemonName) {
-      errMsg.textContent = 'Please enter a Pokémon name';
-      return;
-    }
-    fetchPokemon(pokemonName);
-  });
+  const searchPokemon = () => {
+    searchPokemonBtn.addEventListener('click', () => {
+      const pokemonName = inputElem.value.trim();
+      if (!pokemonName) {
+        errMsg.textContent = 'Please enter a Pokémon name';
+        return;
+      }
+      fetchPokemon(pokemonName);
+    });
+
+    inputElem.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const pokemonName = inputElem.value.trim();
+        if (!pokemonName) {
+          errMsg.textContent = 'Please enter a Pokémon name';
+          return;
+        }
+        fetchPokemon(pokemonName);
+      }
+    });
+  };
+
+  searchPokemon();
 
   // Clear err message when user starts typing again
   inputElem.addEventListener('input', () => {
