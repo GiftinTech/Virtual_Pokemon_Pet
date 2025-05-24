@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </div>
     <div class="search_pokemon">
-      <label>Can't find your Pokémon? Search for them here:</label>
+      <label>Can't find your Pokémon? Search for it here:</label>
       <input type="text" class="user_input js_user_input" placeholder="Type your Pokémon name here..." />
       <span class="not_found js_not_found"></span>
       <button class="js_search_pokemon">Search</button>
