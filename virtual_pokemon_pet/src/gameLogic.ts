@@ -33,15 +33,15 @@ export const gameLogic = () => {
 
   healButton.addEventListener('click', () => {
     updateProgressBar(health, 100);
-    updateProgressBar(hunger, -100);
+    updateProgressBar(hunger, 100);
     updateProgressBar(happiness, 100);
   });
 
   setInterval(() => {
-    updateProgressBar(health, -5);
-    updateProgressBar(hunger, -5);
-    updateProgressBar(happiness, -5);
-  }, 3000);
+    updateProgressBar(health, -2);
+    updateProgressBar(hunger, -1);
+    updateProgressBar(happiness, -3);
+  }, 4000);
 };
 
 export default gameLogic;
