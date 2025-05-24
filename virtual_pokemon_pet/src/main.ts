@@ -5,6 +5,7 @@ const pokemonContainer = document.querySelector('.js_pokemon_container') as HTML
 const playInterface = document.querySelector('.js_play_interface') as HTMLElement;
 const body = document.body as HTMLBodyElement;
 const themeButton = document.querySelector('.js_theme_mode') as HTMLButtonElement;
+const savedTheme = sessionStorage.getItem('theme');
 
 // Helper function
 export const switchSection = (to: 'pokemon' | 'play') => {
@@ -19,6 +20,13 @@ export const switchSection = (to: 'pokemon' | 'play') => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (savedTheme === 'dark') {
+    body.classList.add('dark_mode');
+    themeButton.textContent = 'Light Mode';
+  } else {
+    body.classList.remove('dark_mode');
+    themeButton.textContent = 'Dark Mode';
+  }
   // Render HTML (View)
   pokemonContainer.innerHTML = `
     <h1>Choose Your Pokémon</h1>
@@ -117,7 +125,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme toggle
   themeButton.addEventListener('click', () => {
     body.classList.toggle('dark_mode');
-    themeButton.textContent = body.classList.contains('dark_mode') ? 'Light Mode' : 'Dark Mode';
+
+    if (body.classList.contains('dark_mode')) {
+      themeButton.textContent = 'Light Mode';
+      sessionStorage.setItem('theme', 'dark');
+    } else {
+      themeButton.textContent = 'Dark Mode';
+      sessionStorage.setItem('theme', 'light');
+    }
   });
 
   // Change Pokémon functionality
