@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchPokemonBtn.addEventListener('click', () => {
       const pokemonName = inputElem.value.trim();
       if (!pokemonName) {
-        errMsg.textContent = 'Please enter a Pokémon name';
+        errMsg.textContent = 'Please enter a Pokémon name or choose one above.';
         return;
       }
       fetchPokemon(pokemonName);
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') {
         const pokemonName = inputElem.value.trim();
         if (!pokemonName) {
-          errMsg.textContent = 'Please enter a Pokémon name';
+          errMsg.textContent = 'Please enter a Pokémon name choose one above.';
           return;
         }
         fetchPokemon(pokemonName);
