@@ -27,7 +27,7 @@ export const gameLogic = () => {
 
   playButton.addEventListener('click', () => {
     updateProgressBar(happiness, 20);
-    updateProgressBar(hunger, 20);
+    updateProgressBar(hunger, -10);
     updateProgressBar(health, -20);
   });
 
